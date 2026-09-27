@@ -50,10 +50,21 @@ const categoryTabs: { value: CategoryType | 'all'; label: string }[] = [
   { value: 'Accessory', label: 'Phụ kiện khác' },
 ];
 
+const parseCategoryParam = (param: string | null): CategoryType | 'all' => {
+  if (!param) return 'all';
+  const matched = categoryTabs.find(
+    (c) =>
+      c.value.toLowerCase() === param.toLowerCase() ||
+      c.value.toLowerCase().replace(/\s/g, '-') === param.toLowerCase() ||
+      c.value === param
+  );
+  return matched ? matched.value : 'all';
+};
+
 export default function ProductListingPage() {
   const searchParams = useSearchParams();
   const initialSearch = searchParams.get('search') || '';
-  const initialCategory = (searchParams.get('category') || 'all') as CategoryType | 'all';
+  const initialCategory = parseCategoryParam(searchParams.get('category'));
 
   const [search, setSearch] = useState(initialSearch);
   const [category, setCategory] = useState<CategoryType | 'all'>(initialCategory);
@@ -69,12 +80,7 @@ export default function ProductListingPage() {
     if (searchVal) setSearch(searchVal);
     const catVal = searchParams.get('category');
     if (catVal) {
-      const matchedCat = categoryTabs.find(
-        (c) =>
-          c.value.toLowerCase().replace(/\s/g, '-') === catVal.toLowerCase() ||
-          c.value === catVal
-      );
-      if (matchedCat) setCategory(matchedCat.value);
+      setCategory(parseCategoryParam(catVal));
     }
   }, [searchParams]);
 
@@ -118,7 +124,7 @@ export default function ProductListingPage() {
         {/* MUI Category Tabs */}
         <div className="mb-8 border-b border-[#e5e5e5]">
           <Tabs
-            value={category}
+            value={categoryTabs.some((t) => t.value === category) ? category : 'all'}
             onChange={handleCategoryChange}
             variant="scrollable"
             scrollButtons="auto"
