@@ -1,3 +1,5 @@
+@layer theme, base, mui, components, utilities;
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
@@ -97,6 +99,54 @@ img {
 
 a {
   text-decoration: none;
+}
+
+/* ==========================================
+   MUI INPUT & FORM FIELD FIXES FOR TAILWIND
+   ========================================== */
+fieldset {
+  border-style: solid;
+}
+
+.MuiOutlinedInput-notchedOutline {
+  border-style: solid !important;
+}
+
+.MuiOutlinedInput-notchedOutline legend {
+  float: unset !important;
+  width: auto !important;
+  overflow: hidden !important;
+  display: block !important;
+  padding: 0 !important;
+  line-height: 11px !important;
+  font-size: 0.75em !important;
+  height: 11px !important;
+  max-width: 0.01px;
+  transition: max-width 50ms cubic-bezier(0, 0, 0.2, 1) 0ms !important;
+  white-space: nowrap !important;
+}
+
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline legend,
+.MuiInputLabel-shrink ~ .MuiInputBase-root .MuiOutlinedInput-notchedOutline legend,
+.MuiOutlinedInput-root:has(.MuiInputLabel-shrink) .MuiOutlinedInput-notchedOutline legend,
+.MuiInputLabel-shrink ~ .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline legend,
+.MuiFormControl-root:has(.MuiInputLabel-shrink) .MuiOutlinedInput-notchedOutline legend {
+  max-width: 100% !important;
+  transition: max-width 100ms cubic-bezier(0, 0, 0.2, 1) 50ms !important;
+}
+
+/* Ensure inputs have proper line-height, text padding, and label positions */
+.MuiInputBase-input {
+  box-sizing: border-box !important;
+  line-height: 1.5 !important;
+}
+
+.MuiInputLabel-outlined {
+  line-height: 1.2 !important;
+}
+
+.MuiDialogContent-root {
+  padding-top: 16px !important;
 }
 
 /* ==========================================

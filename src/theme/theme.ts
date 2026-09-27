@@ -133,35 +133,81 @@ export const theme = createTheme({
     MuiTextField: {
       defaultProps: {
         variant: 'outlined',
-        size: 'small',
+        size: 'medium',
       },
       styleOverrides: {
         root: {
           '& .MuiOutlinedInput-root': {
-            borderRadius: 2,
+            borderRadius: 6,
             '& fieldset': {
-              borderColor: '#e5e5e5',
+              borderColor: '#dcdcd8',
             },
             '&:hover fieldset': {
-              borderColor: '#999999',
+              borderColor: '#888888',
             },
             '&.Mui-focused fieldset': {
               borderColor: '#111111',
               borderWidth: '1.5px',
             },
           },
+          '& .MuiInputLabel-root': {
+            color: '#666666',
+            '&.Mui-focused': {
+              color: '#111111',
+            },
+          },
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          borderRadius: 6,
+          backgroundColor: '#ffffff',
+          '& fieldset': {
+            borderColor: '#dcdcd8',
+          },
+          '&:hover fieldset': {
+            borderColor: '#888888',
+          },
+          '&.Mui-focused fieldset': {
+            borderColor: '#111111',
+            borderWidth: '1.5px',
+          },
+        },
+        input: {
+          padding: '12px 14px',
+          fontSize: '0.875rem',
+        },
+        inputSizeSmall: {
+          padding: '8.5px 12px',
+          fontSize: '0.8125rem',
+        },
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          color: '#666666',
+          fontSize: '0.875rem',
+          '&.Mui-focused': {
+            color: '#111111',
+          },
+        },
+        sizeSmall: {
+          fontSize: '0.8125rem',
         },
       },
     },
     MuiSelect: {
       styleOverrides: {
         root: {
-          borderRadius: 2,
+          borderRadius: 6,
           '& fieldset': {
-            borderColor: '#e5e5e5',
+            borderColor: '#dcdcd8',
           },
           '&:hover fieldset': {
-            borderColor: '#999999',
+            borderColor: '#888888',
           },
           '&.Mui-focused fieldset': {
             borderColor: '#111111',
