@@ -179,9 +179,11 @@ export const theme = createTheme({
           padding: '12px 14px',
           fontSize: '0.875rem',
         },
-        inputSizeSmall: {
-          padding: '8.5px 12px',
-          fontSize: '0.8125rem',
+        sizeSmall: {
+          '& .MuiOutlinedInput-input': {
+            padding: '8.5px 12px',
+            fontSize: '0.8125rem',
+          },
         },
       },
     },
