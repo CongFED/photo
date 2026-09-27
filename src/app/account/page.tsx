@@ -214,6 +214,7 @@ export default function AccountPage() {
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                   slotProps={{
+                    inputLabel: { shrink: true },
                     input: {
                       startAdornment: (
                         <InputAdornment position="start">
@@ -233,6 +234,7 @@ export default function AccountPage() {
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   slotProps={{
+                    inputLabel: { shrink: true },
                     input: {
                       startAdornment: (
                         <InputAdornment position="start">
@@ -253,6 +255,7 @@ export default function AccountPage() {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   slotProps={{
+                    inputLabel: { shrink: true },
                     input: {
                       startAdornment: (
                         <InputAdornment position="start">
@@ -272,6 +275,7 @@ export default function AccountPage() {
                   value={formData.idNumber}
                   onChange={(e) => setFormData({ ...formData, idNumber: e.target.value })}
                   slotProps={{
+                    inputLabel: { shrink: true },
                     input: {
                       startAdornment: (
                         <InputAdornment position="start">
@@ -295,6 +299,7 @@ export default function AccountPage() {
                   slotProps={{
                     textField: {
                       fullWidth: true,
+                      slotProps: { inputLabel: { shrink: true } },
                       sx: {
                         '& .MuiOutlinedInput-root': { backgroundColor: '#fcfcfb', borderRadius: '6px' },
                       },
@@ -310,6 +315,7 @@ export default function AccountPage() {
                   value={formData.socialContact}
                   onChange={(e) => setFormData({ ...formData, socialContact: e.target.value })}
                   slotProps={{
+                    inputLabel: { shrink: true },
                     input: {
                       startAdornment: (
                         <InputAdornment position="start">
@@ -329,6 +335,7 @@ export default function AccountPage() {
                   value={formData.address}
                   onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                   slotProps={{
+                    inputLabel: { shrink: true },
                     input: {
                       startAdornment: (
                         <InputAdornment position="start">

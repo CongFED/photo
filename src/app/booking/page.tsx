@@ -353,6 +353,7 @@ export default function BookingPage() {
                     error={Boolean(errors.fullName)}
                     helperText={errors.fullName}
                     slotProps={{
+                      inputLabel: { shrink: true },
                       input: {
                         startAdornment: (
                           <InputAdornment position="start">
@@ -381,6 +382,7 @@ export default function BookingPage() {
                     error={Boolean(errors.phone)}
                     helperText={errors.phone}
                     slotProps={{
+                      inputLabel: { shrink: true },
                       input: {
                         startAdornment: (
                           <InputAdornment position="start">
@@ -409,6 +411,7 @@ export default function BookingPage() {
                     error={Boolean(errors.email)}
                     helperText={errors.email}
                     slotProps={{
+                      inputLabel: { shrink: true },
                       input: {
                         startAdornment: (
                           <InputAdornment position="start">
@@ -449,6 +452,7 @@ export default function BookingPage() {
                     value={formData.idNumber}
                     onChange={(e) => handleChange('idNumber', e.target.value)}
                     slotProps={{
+                      inputLabel: { shrink: true },
                       input: {
                         startAdornment: (
                           <InputAdornment position="start">
@@ -476,6 +480,7 @@ export default function BookingPage() {
                       textField: {
                         fullWidth: true,
                         size: 'medium',
+                        slotProps: { inputLabel: { shrink: true } },
                         sx: {
                           '& .MuiOutlinedInput-root': {
                             backgroundColor: '#fcfcfb',
@@ -495,6 +500,7 @@ export default function BookingPage() {
                     value={formData.socialContact}
                     onChange={(e) => handleChange('socialContact', e.target.value)}
                     slotProps={{
+                      inputLabel: { shrink: true },
                       input: {
                         startAdornment: (
                           <InputAdornment position="start">
@@ -535,6 +541,7 @@ export default function BookingPage() {
                     value={formData.address}
                     onChange={(e) => handleChange('address', e.target.value)}
                     slotProps={{
+                      inputLabel: { shrink: true },
                       input: {
                         startAdornment: (
                           <InputAdornment position="start">
@@ -587,6 +594,7 @@ export default function BookingPage() {
                     value={formData.usageLocation}
                     onChange={(e) => handleChange('usageLocation', e.target.value)}
                     slotProps={{
+                      inputLabel: { shrink: true },
                       input: {
                         startAdornment: (
                           <InputAdornment position="start">
@@ -614,6 +622,7 @@ export default function BookingPage() {
                     value={formData.notes}
                     onChange={(e) => handleChange('notes', e.target.value)}
                     slotProps={{
+                      inputLabel: { shrink: true },
                       input: {
                         startAdornment: (
                           <InputAdornment position="start" sx={{ alignSelf: 'flex-start', mt: 1 }}>

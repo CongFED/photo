@@ -32,6 +32,8 @@ import {
   Divider,
   InputAdornment,
   Tooltip,
+  Box,
+  Grid,
 } from '@mui/material';
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
 import BookOnlineOutlinedIcon from '@mui/icons-material/BookOnlineOutlined';
@@ -1199,11 +1201,11 @@ export default function AdminDemoPage() {
         fullWidth
         slotProps={{ paper: { sx: { borderRadius: '10px', p: 1 } } }}
       >
-        <DialogTitle sx={{ fontWeight: 800, fontSize: '1.125rem', textTransform: 'uppercase' }}>
+        <DialogTitle sx={{ fontWeight: 800, fontSize: '1.125rem', textTransform: 'uppercase', pb: 1 }}>
           Thêm thiết bị mới vào kho
         </DialogTitle>
-        <DialogContent>
-          <div className="space-y-4 pt-2">
+        <DialogContent sx={{ pt: '20px !important', px: 3, pb: 2 }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.5, pt: 1 }}>
             <TextField
               fullWidth
               size="small"
@@ -1212,9 +1214,10 @@ export default function AdminDemoPage() {
               placeholder="VD: Sony FX3 Cinema Line hoặc Canon EOS R5 II"
               value={prodForm.name}
               onChange={(e) => setProdForm({ ...prodForm, name: e.target.value })}
+              slotProps={{ inputLabel: { shrink: true } }}
             />
 
-            <div className="grid grid-cols-2 gap-3">
+            <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' }, gap: 2 }}>
               <FormControl fullWidth size="small">
                 <InputLabel id="add-brand-label">Thương hiệu</InputLabel>
                 <Select
@@ -1245,15 +1248,16 @@ export default function AdminDemoPage() {
                   <MenuItem value="Accessory">Phụ kiện & Pin sạc</MenuItem>
                 </Select>
               </FormControl>
-            </div>
+            </Box>
 
-            <div className="grid grid-cols-3 gap-3">
+            <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr 1fr' }, gap: 2 }}>
               <TextField
                 fullWidth
                 size="small"
                 label="Giá thuê/ngày (VNĐ)"
                 value={prodForm.pricePerDay}
                 onChange={(e) => setProdForm({ ...prodForm, pricePerDay: e.target.value })}
+                slotProps={{ inputLabel: { shrink: true } }}
               />
               <TextField
                 fullWidth
@@ -1261,6 +1265,7 @@ export default function AdminDemoPage() {
                 label="Tiền cọc gốc (VNĐ)"
                 value={prodForm.deposit}
                 onChange={(e) => setProdForm({ ...prodForm, deposit: e.target.value })}
+                slotProps={{ inputLabel: { shrink: true } }}
               />
               <TextField
                 fullWidth
@@ -1268,8 +1273,9 @@ export default function AdminDemoPage() {
                 label="Số lượng máy"
                 value={prodForm.totalUnits}
                 onChange={(e) => setProdForm({ ...prodForm, totalUnits: e.target.value })}
+                slotProps={{ inputLabel: { shrink: true } }}
               />
-            </div>
+            </Box>
 
             <TextField
               fullWidth
@@ -1278,6 +1284,7 @@ export default function AdminDemoPage() {
               placeholder="VD: Cảm biến 33MP, Quay 4K60p 10-bit, Chống rung 5.5 stops"
               value={prodForm.specs}
               onChange={(e) => setProdForm({ ...prodForm, specs: e.target.value })}
+              slotProps={{ inputLabel: { shrink: true } }}
             />
 
             <TextField
@@ -1288,6 +1295,7 @@ export default function AdminDemoPage() {
               label="Mô tả ngắn"
               value={prodForm.shortDescription}
               onChange={(e) => setProdForm({ ...prodForm, shortDescription: e.target.value })}
+              slotProps={{ inputLabel: { shrink: true } }}
             />
 
             <FormControl fullWidth size="small">
@@ -1308,7 +1316,7 @@ export default function AdminDemoPage() {
                 <MenuItem value="/images/products/dji-osmo-pocket-3.jpg">DJI Osmo Pocket 3 Creator</MenuItem>
               </Select>
             </FormControl>
-          </div>
+          </Box>
         </DialogContent>
         <DialogActions sx={{ p: 2.5 }}>
           <Button onClick={() => setAddProductOpen(false)} sx={{ color: '#666666', textTransform: 'none' }}>
@@ -1332,21 +1340,22 @@ export default function AdminDemoPage() {
         fullWidth
         slotProps={{ paper: { sx: { borderRadius: '10px', p: 1 } } }}
       >
-        <DialogTitle sx={{ fontWeight: 800, fontSize: '1.125rem', textTransform: 'uppercase' }}>
+        <DialogTitle sx={{ fontWeight: 800, fontSize: '1.125rem', textTransform: 'uppercase', pb: 1 }}>
           Chỉnh sửa thông tin thiết bị
         </DialogTitle>
-        <DialogContent>
+        <DialogContent sx={{ pt: '20px !important', px: 3, pb: 2 }}>
           {editingProduct && (
-            <div className="space-y-4 pt-2">
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.5, pt: 1 }}>
               <TextField
                 fullWidth
                 size="small"
                 label="Tên thiết bị"
                 value={editingProduct.name}
                 onChange={(e) => setEditingProduct({ ...editingProduct, name: e.target.value })}
+                slotProps={{ inputLabel: { shrink: true } }}
               />
 
-              <div className="grid grid-cols-3 gap-3">
+              <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr 1fr' }, gap: 2 }}>
                 <TextField
                   fullWidth
                   size="small"
@@ -1355,6 +1364,7 @@ export default function AdminDemoPage() {
                   onChange={(e) =>
                     setEditingProduct({ ...editingProduct, pricePerDay: Number(e.target.value) || 0 })
                   }
+                  slotProps={{ inputLabel: { shrink: true } }}
                 />
                 <TextField
                   fullWidth
@@ -1364,6 +1374,7 @@ export default function AdminDemoPage() {
                   onChange={(e) =>
                     setEditingProduct({ ...editingProduct, deposit: Number(e.target.value) || 0 })
                   }
+                  slotProps={{ inputLabel: { shrink: true } }}
                 />
                 <TextField
                   fullWidth
@@ -1373,8 +1384,9 @@ export default function AdminDemoPage() {
                   onChange={(e) =>
                     setEditingProduct({ ...editingProduct, totalUnits: Number(e.target.value) || 0 })
                   }
+                  slotProps={{ inputLabel: { shrink: true } }}
                 />
-              </div>
+              </Box>
 
               <TextField
                 fullWidth
@@ -1384,8 +1396,9 @@ export default function AdminDemoPage() {
                 label="Mô tả ngắn"
                 value={editingProduct.shortDescription}
                 onChange={(e) => setEditingProduct({ ...editingProduct, shortDescription: e.target.value })}
+                slotProps={{ inputLabel: { shrink: true } }}
               />
-            </div>
+            </Box>
           )}
         </DialogContent>
         <DialogActions sx={{ p: 2.5 }}>
@@ -1532,18 +1545,19 @@ export default function AdminDemoPage() {
         fullWidth
         slotProps={{ paper: { sx: { borderRadius: '10px', p: 1 } } }}
       >
-        <DialogTitle sx={{ fontWeight: 800, fontSize: '1rem', textTransform: 'uppercase' }}>
+        <DialogTitle sx={{ fontWeight: 800, fontSize: '1rem', textTransform: 'uppercase', pb: 1 }}>
           Chỉnh sửa tài khoản người dùng
         </DialogTitle>
-        <DialogContent>
+        <DialogContent sx={{ pt: '20px !important', px: 3, pb: 2 }}>
           {editingUser && (
-            <div className="space-y-3.5 pt-2">
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.5, pt: 1 }}>
               <TextField
                 fullWidth
                 size="small"
                 label="Họ và tên"
                 value={editingUser.fullName}
                 onChange={(e) => setEditingUser({ ...editingUser, fullName: e.target.value })}
+                slotProps={{ inputLabel: { shrink: true } }}
               />
               <TextField
                 fullWidth
@@ -1551,6 +1565,7 @@ export default function AdminDemoPage() {
                 label="Số điện thoại"
                 value={editingUser.phone}
                 onChange={(e) => setEditingUser({ ...editingUser, phone: e.target.value })}
+                slotProps={{ inputLabel: { shrink: true } }}
               />
               <TextField
                 fullWidth
@@ -1558,6 +1573,7 @@ export default function AdminDemoPage() {
                 label="Địa chỉ Email"
                 value={editingUser.email}
                 onChange={(e) => setEditingUser({ ...editingUser, email: e.target.value })}
+                slotProps={{ inputLabel: { shrink: true } }}
               />
               <TextField
                 fullWidth
@@ -1565,9 +1581,10 @@ export default function AdminDemoPage() {
                 label="Số CCCD / Hộ chiếu"
                 value={editingUser.idNumber || ''}
                 onChange={(e) => setEditingUser({ ...editingUser, idNumber: e.target.value })}
+                slotProps={{ inputLabel: { shrink: true } }}
               />
 
-              <div className="grid grid-cols-2 gap-3">
+              <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }}>
                 <FormControl fullWidth size="small">
                   <InputLabel id="edit-role-label">Vai trò</InputLabel>
                   <Select
@@ -1597,7 +1614,7 @@ export default function AdminDemoPage() {
                     <MenuItem value="diamond">VIP Diamond</MenuItem>
                   </Select>
                 </FormControl>
-              </div>
+              </Box>
 
               <FormControl fullWidth size="small">
                 <InputLabel id="edit-status-label">Trạng thái tài khoản</InputLabel>
@@ -1611,7 +1628,7 @@ export default function AdminDemoPage() {
                   <MenuItem value="blocked">Tạm khóa (Blocked)</MenuItem>
                 </Select>
               </FormControl>
-            </div>
+            </Box>
           )}
         </DialogContent>
         <DialogActions sx={{ p: 2 }}>
@@ -1636,11 +1653,11 @@ export default function AdminDemoPage() {
         fullWidth
         slotProps={{ paper: { sx: { borderRadius: '10px', p: 1 } } }}
       >
-        <DialogTitle sx={{ fontWeight: 800, fontSize: '1rem', textTransform: 'uppercase' }}>
+        <DialogTitle sx={{ fontWeight: 800, fontSize: '1rem', textTransform: 'uppercase', pb: 1 }}>
           Tạo tài khoản người dùng mới
         </DialogTitle>
-        <DialogContent>
-          <div className="space-y-3.5 pt-2">
+        <DialogContent sx={{ pt: '20px !important', px: 3, pb: 2 }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.5, pt: 1 }}>
             <TextField
               fullWidth
               size="small"
@@ -1649,6 +1666,7 @@ export default function AdminDemoPage() {
               placeholder="Nguyễn Văn A"
               value={newUserForm.fullName}
               onChange={(e) => setNewUserForm({ ...newUserForm, fullName: e.target.value })}
+              slotProps={{ inputLabel: { shrink: true } }}
             />
             <TextField
               fullWidth
@@ -1658,6 +1676,7 @@ export default function AdminDemoPage() {
               placeholder="0909123456"
               value={newUserForm.phone}
               onChange={(e) => setNewUserForm({ ...newUserForm, phone: e.target.value })}
+              slotProps={{ inputLabel: { shrink: true } }}
             />
             <TextField
               fullWidth
@@ -1667,6 +1686,7 @@ export default function AdminDemoPage() {
               placeholder="user@example.com"
               value={newUserForm.email}
               onChange={(e) => setNewUserForm({ ...newUserForm, email: e.target.value })}
+              slotProps={{ inputLabel: { shrink: true } }}
             />
             <TextField
               fullWidth
@@ -1675,9 +1695,10 @@ export default function AdminDemoPage() {
               placeholder="079..."
               value={newUserForm.idNumber}
               onChange={(e) => setNewUserForm({ ...newUserForm, idNumber: e.target.value })}
+              slotProps={{ inputLabel: { shrink: true } }}
             />
 
-            <div className="grid grid-cols-2 gap-3">
+            <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }}>
               <FormControl fullWidth size="small">
                 <InputLabel id="add-user-role">Vai trò</InputLabel>
                 <Select
@@ -1707,7 +1728,7 @@ export default function AdminDemoPage() {
                   <MenuItem value="diamond">VIP Diamond</MenuItem>
                 </Select>
               </FormControl>
-            </div>
+            </Box>
 
             <TextField
               fullWidth
@@ -1716,8 +1737,9 @@ export default function AdminDemoPage() {
               placeholder="TP.HCM..."
               value={newUserForm.address}
               onChange={(e) => setNewUserForm({ ...newUserForm, address: e.target.value })}
+              slotProps={{ inputLabel: { shrink: true } }}
             />
-          </div>
+          </Box>
         </DialogContent>
         <DialogActions sx={{ p: 2 }}>
           <Button onClick={() => setAddUserOpen(false)} sx={{ color: '#666666', textTransform: 'none' }}>

@@ -13,6 +13,7 @@ import {
   CircularProgress,
   Alert,
   Divider,
+  Box,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
@@ -79,7 +80,7 @@ export default function BookingLookupPage() {
 
         {/* Search Card */}
         <Card sx={{ border: '1px solid #e5e5e5', borderRadius: '8px', p: { xs: 3, sm: 4 }, mb: 6 }}>
-          <div className="space-y-4">
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.5 }}>
             <TextField
               fullWidth
               label="Mã đặt lịch (Booking Code)"
@@ -87,6 +88,7 @@ export default function BookingLookupPage() {
               value={code}
               onChange={(e) => setCode(e.target.value.toUpperCase())}
               slotProps={{
+                inputLabel: { shrink: true },
                 input: {
                   startAdornment: <TagIcon sx={{ fontSize: 20, color: '#888888', mr: 1 }} />,
                 },
@@ -100,6 +102,7 @@ export default function BookingLookupPage() {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               slotProps={{
+                inputLabel: { shrink: true },
                 input: {
                   startAdornment: <PhoneIphoneIcon sx={{ fontSize: 20, color: '#888888', mr: 1 }} />,
                 },
@@ -127,7 +130,7 @@ export default function BookingLookupPage() {
             >
               {isSearching ? 'Đang tìm kiếm hồ sơ...' : 'Tra cứu lịch đặt'}
             </Button>
-          </div>
+          </Box>
 
           <div className="mt-5 pt-4 border-t border-[#f0f0f0] flex flex-wrap items-center justify-between text-xs text-[#777777] gap-2">
             <span>Mẫu demo khả dụng:</span>

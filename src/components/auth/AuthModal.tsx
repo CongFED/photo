@@ -196,7 +196,7 @@ export default function AuthModal({
         )}
 
         {tab === 'login' ? (
-          <form onSubmit={handleLoginSubmit} className="space-y-4">
+          <Box component="form" onSubmit={handleLoginSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2.5, pt: 1 }}>
             <TextField
               fullWidth
               size="small"
@@ -206,6 +206,7 @@ export default function AuthModal({
               onChange={(e) => setLoginEmail(e.target.value)}
               placeholder="user@camera.vn"
               slotProps={{
+                inputLabel: { shrink: true },
                 input: {
                   startAdornment: (
                     <InputAdornment position="start">
@@ -226,6 +227,7 @@ export default function AuthModal({
               onChange={(e) => setLoginPassword(e.target.value)}
               placeholder="••••••••"
               slotProps={{
+                inputLabel: { shrink: true },
                 input: {
                   startAdornment: (
                     <InputAdornment position="start">
@@ -306,9 +308,9 @@ export default function AuthModal({
                 </Button>
               </div>
             </div>
-          </form>
+          </Box>
         ) : (
-          <form onSubmit={handleRegisterSubmit} className="space-y-3">
+          <Box component="form" onSubmit={handleRegisterSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2.5, pt: 1 }}>
             <TextField
               fullWidth
               size="small"
@@ -318,6 +320,7 @@ export default function AuthModal({
               onChange={(e) => setRegFullName(e.target.value)}
               placeholder="Nguyễn Văn A"
               slotProps={{
+                inputLabel: { shrink: true },
                 input: {
                   startAdornment: (
                     <InputAdornment position="start">
@@ -339,6 +342,7 @@ export default function AuthModal({
               onChange={(e) => setRegEmail(e.target.value)}
               placeholder="email@example.com"
               slotProps={{
+                inputLabel: { shrink: true },
                 input: {
                   startAdornment: (
                     <InputAdornment position="start">
@@ -359,6 +363,7 @@ export default function AuthModal({
               onChange={(e) => setRegPhone(e.target.value)}
               placeholder="0909123456"
               slotProps={{
+                inputLabel: { shrink: true },
                 input: {
                   startAdornment: (
                     <InputAdornment position="start">
@@ -378,6 +383,7 @@ export default function AuthModal({
               onChange={(e) => setRegIdNumber(e.target.value)}
               placeholder="079..."
               slotProps={{
+                inputLabel: { shrink: true },
                 input: {
                   startAdornment: (
                     <InputAdornment position="start">
@@ -408,7 +414,7 @@ export default function AuthModal({
             >
               {loading ? 'Đang đăng ký...' : 'Hoàn tất đăng ký'}
             </Button>
-          </form>
+          </Box>
         )}
       </DialogContent>
     </Dialog>
